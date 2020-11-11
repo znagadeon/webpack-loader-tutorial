@@ -6,5 +6,16 @@ const getLinks = text => text.split('\n')
     .map(match => match[1]);
 
 module.exports = function (source) {
-    return '';
+    const callback = this.async();
+
+    const links = getLinks(source);
+    const promises = links.map(link => axios({
+        method: 'GET',
+        url: link,
+        timeout: 300,
+    }));
+
+    Promise.all(promises).then(() => {
+        callback(null, source);
+    });
 };

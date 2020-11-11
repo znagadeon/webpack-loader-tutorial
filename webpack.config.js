@@ -16,6 +16,10 @@ module.exports = {
 
 	module: {
 		rules: [{
+			enforce: 'pre',
+			test: /\.md$/,
+			loader: './loaders/mdlint-loader.js',
+		}, {
 			test: /\.md$/,
 			use: [
 				'./loaders/html-loader.js',
