@@ -17,5 +17,13 @@ module.exports = function (source) {
 
     Promise.all(promises).then(() => {
         callback(null, source);
+    }).catch(err => {
+        // warning을 뱉을 때
+        this.emitWarning(new Error('Dead link found!'));
+        callback(null, source);
+
+        // error를 뱉을 때
+        // this.emitError(new Error('Dead link found!'));
+        // callback(err);
     });
 };
