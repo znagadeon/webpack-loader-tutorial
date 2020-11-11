@@ -6,13 +6,8 @@ const getImagePaths = text => text.split('\n')
 	.map(match => match[1]);
 
 module.exports = function (source) {
-	const images = getImagePaths(source);
-	images.forEach(image => {
-		this.emitFile(
-			image,
-			this.fs.readFileSync(path.join(this.resourcePath, '..', image)),
-		);
-	});
+	const imageScripts = getImagePaths(source)
+		.map(image => `require('${image}');`);
 
-	return `module.exports = \`${source}\``;
+	return `${imageScripts}module.exports = \`${source}\``;
 };

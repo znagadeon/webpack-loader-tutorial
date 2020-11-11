@@ -26,6 +26,12 @@ module.exports = {
 					},
 				},
 			],
+		}, {
+			test: /\.(jpe?g|png|gif)$/,
+			loader: 'file-loader',
+			options: {
+				name: '[name].[ext]',
+			},
 		}],
 	},
 
