@@ -6,5 +6,5 @@ const getImagePaths = text => text.split('\n')
 	.map(match => match[1]);
 
 module.exports = function (source) {
-	return '';
+	return `module.exports = \`${source}\``;
 };

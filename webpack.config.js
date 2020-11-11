@@ -17,10 +17,15 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.md$/,
-			loader: './loaders/md-loader.js',
-			options: {
-				gfm: false,
-			},
+			use: [
+				'./loaders/html-loader.js',
+				{
+					loader: './loaders/md-loader.js',
+					options: {
+						gfm: false,
+					},
+				},
+			],
 		}],
 	},
 
