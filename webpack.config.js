@@ -18,6 +18,9 @@ module.exports = {
 		rules: [{
 			test: /\.md$/,
 			loader: './loaders/md-loader.js',
+			options: {
+				gfm: false,
+			},
 		}],
 	},
 
