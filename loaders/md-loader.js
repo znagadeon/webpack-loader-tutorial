@@ -1,5 +1,5 @@
 const marked = require('marked');
 
 module.exports = function (source) {
-	return '';
+	return `module.exports = \`${marked(source)}\``;
 };

@@ -15,7 +15,10 @@ module.exports = {
 	},
 
 	module: {
-		
+		rules: [{
+			test: /\.md$/,
+			loader: './loaders/md-loader.js',
+		}],
 	},
 
 	plugins: [
